@@ -5,10 +5,13 @@ const TransactionsList = () => {
     return (
         <>
         <h3>History</h3>
-        <ul id="list">
-            <li id="list li">I will be a Transaction component one day</li>
-            <li id="list li">Me too!</li>
-            <li id="list li">Me three!</li>
+        <ul className="list">
+            <li className="minus">
+            Cash <span>-£400</span><button className="delete-btn">Delete</button>
+            </li> 
+            <li className="plus">
+            Cash <span>+£300</span><button className="delete-btn">Delete</button>
+            </li> 
         </ul>
         </>
     )
