@@ -1,6 +1,9 @@
 const Balance = () => {
     return (
-        <div>Your Balance is £0</div>
+        <>
+        <h4>Your Balance:</h4>
+        <h1 id="balance">£0.00</h1>
+        </>
     )
 }
 

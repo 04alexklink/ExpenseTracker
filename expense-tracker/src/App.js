@@ -6,7 +6,9 @@ function App() {
   return (
     <div>
       <Header text="Expense Tracker"/>
+      <div className="container">
       <Balance/>
+      </div>
     </div>
   );
 }
