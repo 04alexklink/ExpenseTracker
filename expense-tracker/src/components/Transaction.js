@@ -1,10 +1,11 @@
 const Transaction = ( {transaction }) => {
-    console.log(transaction.text, transaction.id, transaction.amount)
+
     const amountWithoutPrecedingNegSign = (number) => {
         const NumberChars = number.toString().split("")
         NumberChars.shift()
         return NumberChars.join("")
     }
+    
     return (
         <>
         {transaction.amount < 0 ?
