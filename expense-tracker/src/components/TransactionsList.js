@@ -3,18 +3,34 @@ import { useContext } from 'react'
 import { GlobalContext } from '../context/GlobalState'
 
 const TransactionsList = () => {
-  const context = useContext(GlobalContext);
-  console.log(context, "HEY")
+  const {transactions } = useContext(GlobalContext);
+  
+  const amountWithoutPrecedingNegSign = (number) => {
+     const NumberChars = number.toString().split("")
+     NumberChars.shift()
+     return NumberChars.join("")
+ }
+
     return (
         <>
         <h3>History</h3>
         <ul className="list">
-            <li className="minus">
-            Cash <span>-£400</span><button className="delete-btn">Delete</button>
-            </li> 
-            <li className="plus">
-            Cash <span>+£300</span><button className="delete-btn">Delete</button>
-            </li> 
+          {transactions.map((transaction) => {
+            if(transaction.amount < 0) {
+              return (
+                <li className="minus" key={transaction.id}>
+              {transaction.text} <span>-£{amountWithoutPrecedingNegSign(transaction.amount)}</span><button className="delete-btn">Delete</button>
+                </li> 
+                )
+            } else { 
+              return (
+             <li className="plus" key={transaction.id}>
+             {transaction.text} <span>+£300</span><button className="delete-btn">Delete</button>
+             </li> 
+              )
+            }
+          }          
+          )}
         </ul>
         </>
     )
