@@ -4,7 +4,7 @@ import { GlobalContext } from '../context/GlobalState'
 
 const TransactionsList = () => {
   const {transactions } = useContext(GlobalContext);
-  
+
   const amountWithoutPrecedingNegSign = (number) => {
      const NumberChars = number.toString().split("")
      NumberChars.shift()
@@ -25,7 +25,7 @@ const TransactionsList = () => {
             } else { 
               return (
              <li className="plus" key={transaction.id}>
-             {transaction.text} <span>+£300</span><button className="delete-btn">Delete</button>
+             {transaction.text} <span>+£{transaction.amount}</span><button className="delete-btn">Delete</button>
              </li> 
               )
             }
