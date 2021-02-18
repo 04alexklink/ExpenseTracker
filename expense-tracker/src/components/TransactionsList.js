@@ -1,7 +1,10 @@
 import Transaction from './Transaction'
+import { useContext } from 'react'
+import { GlobalContext } from '../context/GlobalState'
 
 const TransactionsList = () => {
-
+  const context = useContext(GlobalContext);
+  console.log(context, "HEY")
     return (
         <>
         <h3>History</h3>
