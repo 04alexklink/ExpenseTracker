@@ -2,4 +2,15 @@ function getTransactions() {
     return 'GET TRANSACTIONS FROM MODEL'
 }
 
-module.exports = { getTransactions }
+function addTransaction(transaction) {
+  return 'Add a transaction'
+}
+
+function deleteTransaction(id) {
+    return 'Delete a transaction'
+}
+
+module.exports = { 
+    getTransactions,
+    addTransaction,
+    deleteTransaction }
