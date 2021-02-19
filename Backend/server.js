@@ -6,6 +6,7 @@ const DBConnect = require('./config/db')
 
 DBConnect()
 const app = express()
+app.use(express.json())
 const PORT = config.PORT
 
 // app.get('/', (req, res) => {

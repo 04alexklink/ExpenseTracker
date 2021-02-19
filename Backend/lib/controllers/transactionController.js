@@ -9,15 +9,26 @@ async function getTransactions (req, res, next) {
         data: transactions,
     })
   } catch (err) {
-      return res.send(500).json({
+      return res.status(500).json({
         success: false,
         error: 'Server error!'
       })
   }
 }
 
-function addTransaction(transaction) {
-  return 'Add a transaction'
+async function addTransaction (req, res, next) {
+  try {
+    const text = req.body.text
+    const amount = req.body.amount
+    const newTransaction = await Transaction.create(req.body)
+    return res.status(201).json({
+        success: true,
+        data: newTransaction
+    })
+  }
+  catch (err) {
+   console.log(err, "ERROR")
+  }
 }
 
 function deleteTransaction(id) {
@@ -25,4 +36,5 @@ function deleteTransaction(id) {
 }
 
 module.exports = { 
-    getTransactions }
+    getTransactions, 
+    addTransaction }
