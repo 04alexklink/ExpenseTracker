@@ -2,7 +2,9 @@ const express = require('express');
 const morgan = require('morgan');
 const config = require('./config/config');
 const transactionsRouter = require('./lib/routes/transactionsRouter')
+const DBConnect = require('./config/db')
 
+DBConnect()
 const app = express()
 const PORT = config.PORT
 
