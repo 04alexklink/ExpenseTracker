@@ -1,5 +1,19 @@
-function getTransactions() {
-    return 'GET TRANSACTIONS FROM MODEL'
+const Transaction = require('../models/Transaction')
+
+async function getTransactions (req, res, next) {
+  try {
+    const transactions = await Transaction.find();
+    return res.status(200).json({
+        success: true,
+        count: transactions.length,
+        data: transactions,
+    })
+  } catch (err) {
+      return res.send(500).json({
+        success: false,
+        error: 'Server error!'
+      })
+  }
 }
 
 function addTransaction(transaction) {
@@ -11,6 +25,4 @@ function deleteTransaction(id) {
 }
 
 module.exports = { 
-    getTransactions,
-    addTransaction,
-    deleteTransaction }
+    getTransactions }
