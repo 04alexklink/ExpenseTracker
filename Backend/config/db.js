@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
-const config = require('./config')
 
 const DBConnect = async () => {
   try {
-    const conn = await mongoose.connect(config.MONGO_URI, {
+    const conn = await mongoose.connect('mongodb+srv://04alexklink:bsprouts1@expensetracker.secwi.mongodb.net/ExpenseTracker?retryWrites=true&w=majority', {
       useNewUrlParser: true,
       useCreateIndex: true,
       useUnifiedTopology: true
