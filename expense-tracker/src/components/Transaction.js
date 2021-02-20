@@ -16,11 +16,11 @@ const Transaction = ( {transaction } ) => {
     return (
         <>
         {transaction.amount < 0 ?
-            (<li className="minus" key={transaction.id}>
-           {transaction.text} <span>-£{amountWithoutPrecedingNegSign(transaction.amount)}</span><button className="delete-btn" onClick={() => {deleteTransaction(transaction.id)}}>Delete</button>
+            (<li className="minus" key={transaction._id}>
+           {transaction.text} <span>-£{amountWithoutPrecedingNegSign(transaction.amount)}</span><button className="delete-btn" onClick={() => {deleteTransaction(transaction._id)}}>Delete</button>
             </li>)  :
-            (<li className="plus" key={transaction.id}>
-            {transaction.text} <span>+£{transaction.amount}</span><button className="delete-btn" onClick={() => deleteTransaction(transaction.id)}>Delete</button>
+            (<li className="plus" key={transaction._id}>
+            {transaction.text} <span>+£{transaction.amount}</span><button className="delete-btn" onClick={() => deleteTransaction(transaction._id)}>Delete</button>
             </li> )} 
         </>
     )

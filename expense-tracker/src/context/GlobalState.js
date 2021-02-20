@@ -25,19 +25,26 @@ async function getTransactions() {
       payload: res.data.data
     })
   } catch (err) {
-    console.log(err, "ERRORRRR")
     dispatch({
       type: 'TRANSACTION_ERROR',
-      payload: err
+      payload: err.response.data.error
     })
   }
 }
 
-function deleteTransaction(id) {
+async function deleteTransaction(id) {
+  try {
+   await axios.delete(`http://localhost:5000/transaction/${id}`)
     dispatch({
         type: 'DELETE_TRANSACTION',
         payload: id
     });
+  } catch (err) {
+    dispatch({
+      type: 'TRANSACTION_ERROR',
+      payload: err.response.data.error
+    })
+  }
   }
   function addTransaction(transaction) {
     dispatch({
