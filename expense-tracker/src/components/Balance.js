@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import {GlobalContext} from '../context/GlobalState'
 
 const Balance = () => {
-  const {transactions} = useContext(GlobalContext)
+  const { transactions } = useContext(GlobalContext)
   const calculatedBalance = (transactions) => {
     var balance = 0;
     transactions.forEach((transaction) => {

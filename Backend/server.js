@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 const config = require('./config/config');
 const transactionsRouter = require('./lib/routes/transactionsRouter')
 const DBConnect = require('./config/db')
@@ -7,6 +8,7 @@ const DBConnect = require('./config/db')
 DBConnect()
 const app = express()
 app.use(express.json())
+app.use(cors());
 const PORT = config.PORT
 
 // app.get('/', (req, res) => {
